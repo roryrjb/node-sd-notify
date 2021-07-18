@@ -1,13 +1,12 @@
 {
-  "version": "2.8.0",
+  "version": "2.9.0",
   "scripts": {
-    "test": "standard && mocha",
-    "install": "node-gyp rebuild"
+    "install": "./build"
   },
-  "gypfile": true,
   "name": "sd-notify",
   "description": "wrapper around sd_notify for using systemd as a node process manager",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/systemd/node-sd-notify.git"
@@ -27,12 +26,8 @@
     "url": "https://github.com/systemd/node-sd-notify/issues"
   },
   "homepage": "https://github.com/systemd/node-sd-notify#readme",
-  "dependencies": {
-    "bindings": "1.5.0"
-  },
   "devDependencies": {
-    "mocha": "7.0.1",
-    "standard": "14.3.1"
+    "@types/node": "^15.6.0"
   },
   "os": [
     "linux",
@@ -41,5 +36,9 @@
   ],
   "engines": {
     "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
   }
 }

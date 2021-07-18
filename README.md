@@ -1,20 +1,33 @@
-# sd-notify [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard) [![NPM version](https://img.shields.io/npm/v/sd-notify.svg)](https://npmjs.org/package/sd-notify) [![License](http://img.shields.io/npm/l/sd-notify.svg)](LICENSE)
+# sd-notify [![Build Status](https://travis-ci.org/systemd/node-sd-notify.svg?branch=master)](https://travis-ci.org/systemd/node-sd-notify) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard) [![NPM version](https://img.shields.io/npm/v/sd-notify.svg)](https://npmjs.org/package/sd-notify) [![License](http://img.shields.io/npm/l/sd-notify.svg)](LICENSE)
 
 > Extremely minimal wrapper around [`sd_notify`](https://www.freedesktop.org/software/systemd/man/sd_notify.html)
 
-### Requirements
+### About
 
-* any Linux distribution that supports [__systemd__](https://en.wikipedia.org/wiki/Systemd)
-* C/C++ tool stack (GCC/Clang, etc...)
-* Node.js >= `8.0.0`
+__Why would you want this?:__
+
+__Compared to pm2, forever, et al:__
+
+__Containers (Docker, Kubernetes, etc):__
 
 ### Installation
 
-Firstly you need some __systemd__ development files, on __Ubuntu__ these can be installed via:
+__Requirements:__
 
-```
-$ sudo apt install libsystemd-dev
-```
+* any Linux distribution that supports [__systemd__](https://en.wikipedia.org/wiki/Systemd)
+* C/C++ tool stack (GCC/Clang, etc...)
+* Node.js >= `10.0.0`
+
+Firstly you need some __systemd__ development files, usually these can be installed
+via your distributions package manager.
+
+|Distribution|Command|
+|---|---|
+|Debian|`# apt install libsystemd-dev`|
+|Ubuntu|`# apt install libsystemd-dev`|
+|Fedora|   |
+|openSUSE| |
+|Arch| |
 
 ...then using `npm`:
 
@@ -118,11 +131,12 @@ __Status:__
 You can also send some status string to __systemd__, which will append to the service's log.
 
 ```javascript
-const notify = require('sd-notify')
+const notify = require('sd-notify');
 
 // ...
 
-notify.sendStatus('send some status to systemd')
+const status = 'failing';
+notify.sendStatus('send some status to systemd:', status);
 
 // ...
 ```
@@ -139,3 +153,4 @@ Apr 22 17:35:50 lenovo node[8275]: send some status to systemd
 ...
 ```
 
+### TypeScript Support

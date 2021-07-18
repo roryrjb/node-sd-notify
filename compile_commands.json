@@ -1,0 +1,15 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/x86_64-linux-gnu-gcc-10",
+      "-c",
+      "-o",
+      "notify.node",
+      "notify.c",
+      "-I/usr/include/node"
+    ],
+    "directory": "/home/rory/Repos/node-sd-notify",
+    "file": "/home/rory/Repos/node-sd-notify/notify.c",
+    "output": "/home/rory/Repos/node-sd-notify/notify.o"
+  }
+]
